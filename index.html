@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Vue.js x Leaflet.js</title>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-beta/css/bootstrap.min.css">
+    <!-- Leaflet -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.2.0/dist/leaflet.css">
+    
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="app" class="container">
+        <div class="row">
+            <div class="col-9">
+                <div id="map" class="map">
+                    
+                </div>
+            </div>
+            <div class="col-3">
+                <div class="form-check" v-for="layer in layers" :key="layer.id">
+                    <label class="form-check-label">
+                        
+                        <input type="checkbox" class="form-check-input" v-model="layer.active" @change="layerChanged(layer.id, layer.active)" />
+                        {{ layer.name }}
+
+                    </label>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Javascript Library for Vue.js & Leaflet.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.3.4/vue.min.js"></script>
+    <script src="https://unpkg.com/leaflet@1.2.0/dist/leaflet.js"></script>
+
+    <script src="app.js"></script>
+</body>
+</html>
